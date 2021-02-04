@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DataService } from '../services/data/data.service';
+import { SimplePlanet } from './planets.types';
 
 @Component({
   selector: 'app-planets',
@@ -9,7 +10,7 @@ import { DataService } from '../services/data/data.service';
   styleUrls: ['./planets.component.scss'],
 })
 export class PlanetsComponent implements OnInit {
-  planets = [];
+  planets: SimplePlanet[] = [];
   currentPage = 1;
   pagesCount$: Observable<number> = this.dataService.getPlanetPagesCount();
   isBtnDisabled$: Observable<boolean>;
