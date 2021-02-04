@@ -1,0 +1,8 @@
+.mat-card.card {
+  display: flex;
+  justify-content: space-around;
+
+  .mat-card.card-inside {
+	  width: 45%;
+  }
+}

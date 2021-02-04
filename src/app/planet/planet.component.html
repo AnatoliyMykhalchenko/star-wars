@@ -1,5 +1,5 @@
-<mat-card *ngIf="data$ | async as data">
-  <mat-card>
+<mat-card *ngIf="data$ | async as data" class="card">
+  <mat-card class="card-inside">
     <app-info field="name: " [value]="data.planet.name"></app-info>
     <app-info field="rotation period: " [value]="data.planet.rotation_period"></app-info>
     <app-info field="diameter: " [value]="data.planet.diameter"></app-info>
@@ -9,7 +9,7 @@
     <app-info field="population: " [value]="data.planet.population"></app-info>
   </mat-card>
 
-  <mat-card>
+  <mat-card class="card-inside">
     <app-residents [residents]="data.residents"></app-residents>
   </mat-card>
 </mat-card>
