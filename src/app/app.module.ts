@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent
   ],
   imports: [
-    // AppRoutingModule,
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
