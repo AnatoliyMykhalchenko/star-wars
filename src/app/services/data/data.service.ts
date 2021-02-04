@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { combineLatest, forkJoin, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { Planet, ResolvedPlanet } from 'src/app/planet/planet.types';
 import { SimplePlanet } from 'src/app/planets/planets.types';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class DataService {
       .pipe(map((d: any) => d.results.map((p) => this.lightTransformPlanet(p))));
   }
 
-  getPlanet(id): Observable<any> {
+  getPlanet(id): Observable<Planet> {
     return this.http.get(`${this.baseUrl}/planets/${id}`).pipe(map((d: any) => this.transformPlanet(d)));
   }
 
@@ -26,8 +27,7 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/planets/`).pipe(map((d: any) => Math.ceil(d.count / 10)));
   }
 
-  
-  getPlanetWithResidents(id): Observable<any> {
+  getPlanetWithResidents(id): Observable<ResolvedPlanet> {
     return combineLatest([
       this.getPlanet(id),
       this.getPlanet(id).pipe(
@@ -62,7 +62,7 @@ export class DataService {
     population,
     residents,
     url,
-  }): any {
+  }): Planet {
     return {
       id: id ? id : this.extractId(url),
       name,

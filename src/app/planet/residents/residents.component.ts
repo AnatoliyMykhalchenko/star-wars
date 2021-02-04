@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Person } from '../planet.types';
 
 @Component({
   selector: 'app-residents',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./residents.component.scss'],
 })
 export class ResidentsComponent implements OnInit {
-  @Input() residents;
+  @Input() residents: Person[];
   @Output() setCurrentPerson = new EventEmitter();
 
   constructor() {}

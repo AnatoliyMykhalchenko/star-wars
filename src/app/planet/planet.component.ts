@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DataService } from '../services/data/data.service';
+import { Person, ResolvedPlanet } from './planet.types';
 
 @Component({
   selector: 'app-planet',
@@ -11,9 +12,9 @@ import { DataService } from '../services/data/data.service';
   providers: [],
 })
 export class PlanetComponent implements OnInit {
-  data$: Observable<any> = this.route.data.pipe(map((d) => d.planet));
-  currentPerson: any;
-  isResidentsEmpty$ = this.data$.pipe(map((d) => !!d.residents.length));
+  data$: Observable<ResolvedPlanet> = this.route.data.pipe(map((d) => d.planet));
+  currentPerson: Person;
+  isResidentsEmpty$: Observable<boolean> = this.data$.pipe(map((d) => !!d.residents.length));
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Person } from '../planet.types';
 
 @Component({
   selector: 'app-person',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  @Input() person;
+  @Input() person: Person;
   @Input() isVisible: boolean;
 
   constructor() { }
