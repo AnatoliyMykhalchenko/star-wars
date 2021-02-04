@@ -18,6 +18,10 @@ export class DataService {
       .pipe(map((d: any) => d.results.map((p) => this.lightTransformPlanet(p))));
   }
 
+  getPlanet(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}/planets/${id}`).pipe(map((d: any) => this.transformPlanet(d)));
+  }
+
   getPlanetPagesCount(): Observable<number> {
     return this.http.get(`${this.baseUrl}/planets/`).pipe(map((d: any) => Math.ceil(d.count / 10)));
   }
@@ -28,6 +32,32 @@ export class DataService {
       name,
       climate,
       population,
+    };
+  }
+
+  transformPlanet({
+    id,
+    name,
+    rotation_period,
+    diameter,
+    climate,
+    gravity,
+    terrain,
+    population,
+    residents,
+    url,
+  }): any {
+    return {
+      id: id ? id : this.extractId(url),
+      name,
+      rotation_period,
+      diameter,
+      climate,
+      gravity,
+      terrain,
+      population,
+      residents,
+      url,
     };
   }
 
