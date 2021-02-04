@@ -1,0 +1,25 @@
+:host {
+
+  .wrapper {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+  }
+
+  .mat-card {
+    width: 200px;
+    margin-top: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  .mat-button-disabled {
+    color: red;
+  }
+}
