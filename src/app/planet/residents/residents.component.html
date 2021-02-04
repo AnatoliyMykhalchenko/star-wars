@@ -2,7 +2,7 @@
   <mat-card-header>Residents:</mat-card-header>
   <mat-card-content *ngIf="residents.length; else noResidents">
     <ng-container *ngFor="let r of residents" class="choosable">
-      <app-info [value]="r.name" class="choosable"></app-info>
+      <app-info [value]="r.name" class="choosable" (click)="setCurrentPerson.emit(r)"></app-info>
     </ng-container>
   </mat-card-content>
 </ng-container>

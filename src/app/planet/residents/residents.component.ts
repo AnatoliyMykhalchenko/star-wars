@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ResidentsComponent implements OnInit {
   @Input() residents;
+  @Output() setCurrentPerson = new EventEmitter();
 
   constructor() {}
 
