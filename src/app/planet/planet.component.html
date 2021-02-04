@@ -1,11 +1,16 @@
-<mat-card *ngIf="planet$ | async as p">
+<mat-card *ngIf="(data$ | async) as data">
   <mat-card>
-    <app-info field="name: " [value]="p.name"></app-info>
-    <app-info field="rotation period: " [value]="p.rotation_period"></app-info>
-    <app-info field="diameter: " [value]="p.diameter"></app-info>
-    <app-info field="climate: " [value]="p.climate"></app-info>
-    <app-info field="gravity: " [value]="p.gravity"></app-info>
-    <app-info field="terrain: " [value]="p.terrain"></app-info>
-    <app-info field="population: " [value]="p.population"></app-info>
+    <app-info field="name: " [value]="data.planet.name"></app-info>
+    <app-info field="rotation period: " [value]="data.planet.rotation_period"></app-info>
+    <app-info field="diameter: " [value]="data.planet.diameter"></app-info>
+    <app-info field="climate: " [value]="data.planet.climate"></app-info>
+    <app-info field="gravity: " [value]="data.planet.gravity"></app-info>
+    <app-info field="terrain: " [value]="data.planet.terrain"></app-info>
+    <app-info field="population: " [value]="data.planet.population"></app-info>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>Residents:</mat-card-header>
+    <app-info *ngFor="let resident of data.residents" [value]="resident.name"></app-info>
   </mat-card>
 </mat-card>

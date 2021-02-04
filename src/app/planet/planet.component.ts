@@ -10,7 +10,7 @@ import { DataService } from '../services/data/data.service';
   providers: [],
 })
 export class PlanetComponent implements OnInit {
-  planet$: Observable<any> = this.dataService.getPlanet(this.route.snapshot.params.planet);
+  data$: Observable<any> = this.dataService.getPlanetWithResidents(this.route.snapshot.params.planet);
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
