@@ -1,3 +1,5 @@
+<app-header [pages]="this.currentPage"></app-header>
+
 <app-items-list [isBtnDisabled]="isBtnDisabled$ | async" (loadMoreItems)="loadMore()">
   <mat-card *ngFor="let planet of planets" class="choosable" [routerLink]="planet.id">
     <app-info field="name: " [value]="planet.name"></app-info>

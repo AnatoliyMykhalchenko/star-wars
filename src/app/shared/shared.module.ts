@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { RouterModule } from '@angular/router';
 import { InfoComponent } from './info/info.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -12,6 +13,7 @@ import { InfoComponent } from './info/info.component';
   declarations: [
     ItemsListComponent,
     InfoComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { InfoComponent } from './info/info.component';
   exports: [
     ItemsListComponent,
     InfoComponent,
+    HeaderComponent,
     MatCardModule,
     MatButtonModule,
 
