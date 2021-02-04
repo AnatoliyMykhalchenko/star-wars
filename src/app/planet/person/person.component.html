@@ -1,0 +1,12 @@
+<mat-card *ngIf="isVisible">
+  <ng-container *ngIf="person as p; else choosePerson">
+    <app-info field="name: " [value]="p.name"></app-info>
+    <app-info field="mass: " [value]="p.mass"></app-info>
+    <app-info field="height: " [value]="p.height"></app-info>
+    <app-info field="gender: " [value]="p.gender"></app-info>
+  </ng-container>
+</mat-card>
+
+<ng-template #choosePerson>
+  <mat-card>Choose person</mat-card>
+</ng-template>

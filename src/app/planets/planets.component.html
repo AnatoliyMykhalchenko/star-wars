@@ -1,0 +1,9 @@
+<app-header [pages]="this.currentPage"></app-header>
+
+<app-items-list [isBtnDisabled]="isBtnDisabled$ | async" (loadMoreItems)="loadMore()">
+  <mat-card *ngFor="let planet of planets" class="choosable" [routerLink]="planet.id">
+    <app-info field="name: " [value]="planet.name"></app-info>
+    <app-info field="climate: " [value]="planet.climate"></app-info>
+    <app-info field="population: " [value]="planet.population"></app-info>
+  </mat-card>
+</app-items-list>

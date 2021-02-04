@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<mat-card *ngIf="data$ | async as data; else loading" class="card">
+  <mat-card class="card-inside">
+    <app-info field="name: " [value]="data.planet.name"></app-info>
+    <app-info field="rotation period: " [value]="data.planet.rotation_period"></app-info>
+    <app-info field="diameter: " [value]="data.planet.diameter"></app-info>
+    <app-info field="climate: " [value]="data.planet.climate"></app-info>
+    <app-info field="gravity: " [value]="data.planet.gravity"></app-info>
+    <app-info field="terrain: " [value]="data.planet.terrain"></app-info>
+    <app-info field="population: " [value]="data.planet.population"></app-info>
+  </mat-card>
+
+  <mat-card class="card-inside">
+    <app-residents (setCurrentPerson)="setCurrentPerson($event)" [residents]="data.residents"></app-residents>
+  </mat-card>
+</mat-card>
+
+<app-person [isVisible]="isResidentsEmpty$ | async" [person]="this.currentPerson"></app-person>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
