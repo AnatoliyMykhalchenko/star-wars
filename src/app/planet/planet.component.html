@@ -1,0 +1,11 @@
+<mat-card *ngIf="planet$ | async as p">
+  <mat-card>
+    <app-info field="name: " [value]="p.name"></app-info>
+    <app-info field="rotation period: " [value]="p.rotation_period"></app-info>
+    <app-info field="diameter: " [value]="p.diameter"></app-info>
+    <app-info field="climate: " [value]="p.climate"></app-info>
+    <app-info field="gravity: " [value]="p.gravity"></app-info>
+    <app-info field="terrain: " [value]="p.terrain"></app-info>
+    <app-info field="population: " [value]="p.population"></app-info>
+  </mat-card>
+</mat-card>

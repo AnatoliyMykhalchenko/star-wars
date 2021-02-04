@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PlanetComponent } from './planet/planet.component';
 import { PlanetsComponent } from './planets/planets.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'planets',
   },
+  {path: 'planets/:planet', component: PlanetComponent}
 ];
 
 @NgModule({
