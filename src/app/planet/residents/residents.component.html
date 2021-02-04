@@ -1,0 +1,14 @@
+<ng-container *ngIf="residents">
+  <mat-card-header>Residents:</mat-card-header>
+  <mat-card-content *ngIf="residents.length; else noResidents">
+    <ng-container *ngFor="let r of residents" class="choosable">
+      <app-info [value]="r.name" class="choosable"></app-info>
+    </ng-container>
+  </mat-card-content>
+</ng-container>
+
+<ng-template #noResidents>
+  <mat-card-content class="empty-list">
+    <div>There are no residents on this planet</div>
+  </mat-card-content>
+</ng-template>
