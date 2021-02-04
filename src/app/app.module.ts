@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PlanetsModule } from './planets/planets.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -11,11 +12,12 @@ import { SharedModule } from './shared/shared.module';
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
+    // AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
+    PlanetsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
